@@ -23,7 +23,12 @@ app.use(cookieParser());
 //     })
 // );
 // any origin can access the api===========
-app.use(cors({ origin: '*' }));
+app.use(
+    cors({
+        origin: 'https://next-auth-typescript.netlify.app',
+        credentials: true
+    })
+);
 app.use(express.json({ limit: '50mb' }));
 
 // Users api urls============
