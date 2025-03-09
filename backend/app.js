@@ -9,20 +9,21 @@ const app = express();
 
 app.use(cookieParser());
 
-app.use(
-    cors({
-        origin: [
-            'http://localhost:5173',
-            'http://localhost:3000',
-            'https://auth-react-mu-seven.vercel.app',
-            'https://eclectic-sherbet-15d12d.netlify.app',
-            'https://auth-nextjs-typescript-frontend.netlify.app',
-            'https://next-auth-typescript.netlify.app'
-        ],
-        credentials: true
-    })
-);
-
+// app.use(
+//     cors({
+//         origin: [
+//             'http://localhost:5173',
+//             'http://localhost:3000',
+//             'https://auth-react-mu-seven.vercel.app',
+//             'https://eclectic-sherbet-15d12d.netlify.app',
+//             'https://auth-nextjs-typescript-frontend.netlify.app',
+//             'https://next-auth-typescript.netlify.app'
+//         ],
+//         credentials: true
+//     })
+// );
+// any origin can access the api===========
+app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '50mb' }));
 
 // Users api urls============
