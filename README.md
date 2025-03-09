@@ -3,7 +3,7 @@
 ```
 Live Link with React : https://auth-react-mu-seven.vercel.app/login
 
-Live Link with NextJS TypeScript : https://auth-nextjs-typescript-frontend.netlify.app/
+Live Link with NextJS TypeScript : https://next-auth-typescript.netlify.app/
 ```
 
 -   Features

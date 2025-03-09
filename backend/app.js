@@ -16,7 +16,8 @@ app.use(
             'http://localhost:3000',
             'https://auth-react-mu-seven.vercel.app',
             'https://eclectic-sherbet-15d12d.netlify.app',
-            'https://auth-nextjs-typescript-frontend.netlify.app'
+            'https://auth-nextjs-typescript-frontend.netlify.app',
+            'https://next-auth-typescript.netlify.app'
         ],
         credentials: true
     })
