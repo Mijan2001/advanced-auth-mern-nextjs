@@ -4,19 +4,24 @@ import { toast } from 'react-hot-toast';
 import { forgotPassword } from '../api/auth';
 
 function ForgotPassword() {
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await forgotPassword(email);
+            setLoading(false);
             toast.success(response.message);
             navigate('/reset-password');
         } catch (error) {
             toast.error(
                 error.response?.data?.message || 'Failed to send reset OTP'
             );
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -39,12 +44,22 @@ function ForgotPassword() {
                             required
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-                    >
-                        Send Reset OTP
-                    </button>
+                    {!loading && (
+                        <button
+                            type="submit"
+                            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 cursor-pointer"
+                        >
+                            Send Reset OTP
+                        </button>
+                    )}
+                    {loading && (
+                        <div className="w-full bg-blue-500 text-white py-2 rounded-lg text-center flex justify-center cursor-not-allowed">
+                            <svg
+                                className="animate-spin h-5 w-5 mr-3 border-2 border-white border-t-transparent rounded-full"
+                                viewBox="0 0 24 24"
+                            ></svg>
+                        </div>
+                    )}
                 </form>
                 <div className="mt-4 text-center">
                     <Link

@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import { resetPassword } from '../api/auth';
 
 function ResetPassword() {
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
@@ -18,14 +19,18 @@ function ResetPassword() {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await resetPassword(formData);
+            setLoading(false);
             toast.success(response.message);
             navigate('/login');
         } catch (error) {
             toast.error(
                 error.response?.data?.message || 'Password reset failed'
             );
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -88,12 +93,22 @@ function ResetPassword() {
                             required
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-                    >
-                        Reset Password
-                    </button>
+                    {!loading && (
+                        <button
+                            type="submit"
+                            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 cursor-pointer"
+                        >
+                            Reset Password
+                        </button>
+                    )}
+                    {loading && (
+                        <div className="w-full bg-blue-500 text-white py-2 rounded-lg text-center flex justify-center cursor-not-allowed">
+                            <svg
+                                className="animate-spin h-5 w-5 mr-3 border-2 border-white border-t-transparent rounded-full"
+                                viewBox="0 0 24 24"
+                            ></svg>
+                        </div>
+                    )}
                 </form>
             </div>
         </div>
