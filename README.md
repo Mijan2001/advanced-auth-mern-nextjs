@@ -1,28 +1,16 @@
 # ADVANCED MERN AUTHENTICATON NEXT.JS AND REACT.JS FULL PROJECT
 
-## Features
-
-## Signup
-
-## Login
-
-## OTP
-
-## Verify-Email
-
-## Forget-Password
-
-## Logout
-
-## backend
-
-## frontend (React.js)
-
-## frontend-nextjs (Next.js,typescript)
-
-## frontend and frontend-nextjs are 100% same code but others framework
-
-## Project's Images
+-   Features
+-   Signup
+-   Login
+-   OTP
+-   Verify-Email
+-   Forget-Password
+-   Logout
+-   backend
+-   frontend (React.js)
+-   frontend-nextjs (Next.js,typescript)
+-   frontend and frontend-nextjs are 100% same code but others framework
 
 ![1-homepage](./project-images/1-homepage.png)
 ![2-signup](./project-images/2-signuppage.png)
