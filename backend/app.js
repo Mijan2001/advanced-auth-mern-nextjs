@@ -14,7 +14,8 @@ app.use(
         origin: [
             'http://localhost:5173',
             'http://localhost:3000',
-            'https://advanced-authentication-mern.vercel.app'
+            'https://auth-react-mu-seven.vercel.app',
+            'https://eclectic-sherbet-15d12d.netlify.app'
         ],
         credentials: true
     })
